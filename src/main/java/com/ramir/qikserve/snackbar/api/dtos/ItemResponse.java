@@ -1,6 +1,7 @@
 package com.ramir.qikserve.snackbar.api.dtos;
 
 import com.ramir.qikserve.snackbar.domain.models.entities.Promotion;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +10,7 @@ import java.util.List;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class ItemResponse {
 
     private String id;
