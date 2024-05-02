@@ -1,4 +1,4 @@
-package com.ramir.qikserve.snackbar.dto;
+package com.ramir.qikserve.snackbar.api.dtos;
 
 import lombok.Getter;
 import lombok.Setter;

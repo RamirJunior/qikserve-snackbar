@@ -1,18 +1,15 @@
-package com.ramir.qikserve.snackbar.controller;
+package com.ramir.qikserve.snackbar.api.controllers;
 
-import com.ramir.qikserve.snackbar.dto.ItemRequest;
-import com.ramir.qikserve.snackbar.dto.OrderRequest;
-import com.ramir.qikserve.snackbar.model.Item;
-import com.ramir.qikserve.snackbar.model.Promotion;
-import com.ramir.qikserve.snackbar.model.promotion.PromotionFactory;
-import com.ramir.qikserve.snackbar.service.OrderService;
-import com.ramir.qikserve.snackbar.service.WiremockService;
+import com.ramir.qikserve.snackbar.api.dtos.OrderRequest;
+import com.ramir.qikserve.snackbar.domain.models.entities.Item;
+import com.ramir.qikserve.snackbar.domain.models.promotion.PromotionFactory;
+import com.ramir.qikserve.snackbar.domain.services.OrderService;
+import com.ramir.qikserve.snackbar.domain.services.WiremockService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -25,26 +22,19 @@ public class OrderController {
 
     @PostMapping
     public ResponseEntity createOrder(@RequestBody OrderRequest orderRequest) {
-        List<Item> items = new ArrayList<>();
-        List<Promotion> promotionList = new ArrayList<>();
-        PromotionFactory factory = new PromotionFactory();
-        for (ItemRequest itemRequest : orderRequest.getItems()) {
-            var wiremockItem = wiremockService.getProduct(itemRequest.getId());
-
-            var promotion = factory.createPromotion(wiremockItem.getPromotions());
-            promotionList.add(promotion);
-
-            items.add(
-                    new Item(
+        List<Item> items = orderRequest.getItems().stream()
+                .map(itemRequest -> {
+                    var wiremockItem = wiremockService.getProduct(itemRequest.getId());
+                    var promotion = new PromotionFactory().createPromotion(wiremockItem.getPromotions());
+                    return new Item(
                             wiremockItem.getId(),
                             wiremockItem.getName(),
                             wiremockItem.getPrice(),
                             itemRequest.getQuantity(),
-                            promotionList
-                    )
-            );
+                            List.of(promotion));
+                })
+                .toList();
 
-        }
         var response = orderService.createOrder(orderRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }

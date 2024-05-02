@@ -1,11 +1,10 @@
-package com.ramir.qikserve.snackbar.model.promotion;
+package com.ramir.qikserve.snackbar.domain.models.promotion;
 
-import com.ramir.qikserve.snackbar.model.Promotion;
+import com.ramir.qikserve.snackbar.domain.models.entities.Promotion;
 
 import java.util.List;
 
-import static com.ramir.qikserve.snackbar.model.promotion.Constants.*;
-
+import static com.ramir.qikserve.snackbar.domain.util.Constants.*;
 
 public class PromotionFactory {
 
@@ -15,7 +14,7 @@ public class PromotionFactory {
             case BUY_X_GET_Y_FREE -> new BuyXGetYFreePromotion(promotions.get(0));
             case FLAT_PERCENT -> new FlatPercentPromotion(promotions.get(0));
             case QTY_BASED_PRICE_OVERRIDE -> new QuantityBasedPriceOverridePromotion(promotions.get(0));
-            default -> throw new IllegalStateException("Unexpected value: " + promotions.get(0).getType());
+            default -> throw new IllegalStateException("Promotion not supported: " + promotions.get(0).getType());
         };
     }
 }

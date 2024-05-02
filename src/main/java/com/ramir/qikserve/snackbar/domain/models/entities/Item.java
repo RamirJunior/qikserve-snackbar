@@ -1,6 +1,5 @@
-package com.ramir.qikserve.snackbar.model;
+package com.ramir.qikserve.snackbar.domain.models.entities;
 
-import com.ramir.qikserve.snackbar.model.promotion.PromotionFactory;
 import lombok.Getter;
 import lombok.Setter;
 

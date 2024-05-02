@@ -1,4 +1,4 @@
-package com.ramir.qikserve.snackbar.dto;
+package com.ramir.qikserve.snackbar.api.dtos;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +17,7 @@ public class OrderResponse {
     private BigDecimal totalDiscount;
     private BigDecimal requiredPayment;
 
-    public OrderResponse(){
+    public OrderResponse() {
         this.id = UUID.randomUUID();
     }
 }

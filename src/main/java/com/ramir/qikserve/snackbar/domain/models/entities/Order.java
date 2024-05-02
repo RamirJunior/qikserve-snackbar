@@ -1,4 +1,4 @@
-package com.ramir.qikserve.snackbar.model;
+package com.ramir.qikserve.snackbar.domain.models.entities;
 
 import lombok.Getter;
 

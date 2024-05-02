@@ -1,4 +1,4 @@
-package com.ramir.qikserve.snackbar.model;
+package com.ramir.qikserve.snackbar.domain.models.entities;
 
 public enum PromotionType {
     QTY_BASED_PRICE_OVERRIDE,

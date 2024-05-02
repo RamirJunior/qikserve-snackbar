@@ -1,10 +1,10 @@
-package com.ramir.qikserve.snackbar.model;
+package com.ramir.qikserve.snackbar.domain.models.entities;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.ramir.qikserve.snackbar.model.promotion.BuyXGetYFreePromotion;
-import com.ramir.qikserve.snackbar.model.promotion.FlatPercentPromotion;
-import com.ramir.qikserve.snackbar.model.promotion.QuantityBasedPriceOverridePromotion;
+import com.ramir.qikserve.snackbar.domain.models.promotion.BuyXGetYFreePromotion;
+import com.ramir.qikserve.snackbar.domain.models.promotion.FlatPercentPromotion;
+import com.ramir.qikserve.snackbar.domain.models.promotion.QuantityBasedPriceOverridePromotion;
 import lombok.Getter;
 import lombok.Setter;
 

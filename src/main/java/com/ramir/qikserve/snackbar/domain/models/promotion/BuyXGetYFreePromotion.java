@@ -1,6 +1,6 @@
-package com.ramir.qikserve.snackbar.model.promotion;
+package com.ramir.qikserve.snackbar.domain.models.promotion;
 
-import com.ramir.qikserve.snackbar.model.Promotion;
+import com.ramir.qikserve.snackbar.domain.models.entities.Promotion;
 
 import java.math.BigDecimal;
 

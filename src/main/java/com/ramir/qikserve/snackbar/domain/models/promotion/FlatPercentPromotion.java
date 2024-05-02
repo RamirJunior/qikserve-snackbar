@@ -1,16 +1,14 @@
-package com.ramir.qikserve.snackbar.model.promotion;
+package com.ramir.qikserve.snackbar.domain.models.promotion;
 
-import com.ramir.qikserve.snackbar.model.Promotion;
+import com.ramir.qikserve.snackbar.domain.models.entities.Promotion;
 
 import java.math.BigDecimal;
-
 
 public class FlatPercentPromotion extends Promotion {
 
     private double amount;
 
-    public FlatPercentPromotion(){
-
+    public FlatPercentPromotion() {
     }
 
     public FlatPercentPromotion(Promotion promotion) {

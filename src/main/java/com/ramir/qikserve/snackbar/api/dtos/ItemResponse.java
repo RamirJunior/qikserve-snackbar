@@ -1,6 +1,6 @@
-package com.ramir.qikserve.snackbar.dto;
+package com.ramir.qikserve.snackbar.api.dtos;
 
-import com.ramir.qikserve.snackbar.model.Promotion;
+import com.ramir.qikserve.snackbar.domain.models.entities.Promotion;
 import lombok.Getter;
 import lombok.Setter;
 
